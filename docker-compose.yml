@@ -1,0 +1,69 @@
+version: "3.5"
+
+services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    volumes:
+      - ./nginx/nginx.dev.conf:/etc/nginx/nginx.conf
+    links:
+      - client
+      - server
+    networks:
+      - proxynet
+      - default
+    environment:
+      - VIRTUAL_HOST=prenotamy.local
+      - VIRTUAL_PORT=8080
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    environment:
+      - API_HOST=""
+    volumes:
+      - ./client:/app
+    networks:
+      - default
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    links:
+      - db:db
+    volumes:
+      - ./server:/app
+    networks:
+      - default
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - database:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-u", "oneosix", "-poneosix_db_password"]
+      timeout: 20s
+      retries: 10
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_ROOT_USER=root
+      - MYSQL_DATABASE=prenotamy
+      - MYSQL_USER=prenotamy
+      - MYSQL_PASSWORD=prenotamy_db_password
+    networks:
+      - default
+    ports:
+      - 7700:3306
+
+volumes:
+  database:
+    driver: local
+
+networks:
+  proxynet:
+    external:
+      name: proxy_network
+  default:

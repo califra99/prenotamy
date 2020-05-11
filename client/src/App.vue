@@ -1,6 +1,6 @@
 <template>
   <div class="h-full w-full">
-    <router-view> </router-view>
+    <router-view></router-view>
     <modal-dialog></modal-dialog>
   </div>
 </template>
@@ -14,5 +14,4 @@ export default {
   data: () => ({})
 };
 </script>
-<style>
-</style>
+<style></style>

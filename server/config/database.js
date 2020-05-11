@@ -17,25 +17,6 @@ module.exports = {
 
   /*
   |--------------------------------------------------------------------------
-  | Sqlite
-  |--------------------------------------------------------------------------
-  |
-  | Sqlite is a flat file database and can be good choice under development
-  | environment.
-  |
-  | npm i --save sqlite3
-  |
-  */
-  sqlite: {
-    client: 'sqlite3',
-    connection: {
-      filename: Helpers.databasePath(Env.get('DB_FILENAME', 'development.sqlite'))
-    },
-    useNullAsDefault: true
-  },
-
-  /*
-  |--------------------------------------------------------------------------
   | MySQL
   |--------------------------------------------------------------------------
   |
