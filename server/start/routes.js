@@ -15,26 +15,19 @@
 
 const Route = use('Route')
 
-Route.get('/', 'PostController.index')
-
-// Those routes should be only accessible
-// when you are not logged in
 Route.group(() => {
-  Route.get('login', 'SessionController.create')
-  Route.post('login', 'SessionController.store')
+  Route.post('login', 'SessionController.login')
+  Route.post('login/resetpassword', 'UserController.resetpassword')
 
-  Route.get('register', 'UserController.create')
-  Route.post('register', 'UserController.store')
-}).middleware(['guest'])
+  Route.post('register', 'UserController.register');
+})
+  .prefix("/api/");
 
 // Those routes should be only accessible
 // when you are logged in
 Route.group(() => {
-  Route.get('logout', 'SessionController.delete')
+  Route.post('logout', 'SessionController.logout')
+})
+  .middleware(['auth'])
+  .prefix("/api/");
 
-  Route.get('posts/create', 'PostController.create')
-  Route.post('posts', 'PostController.store')
-  Route.get('posts/:id/edit', 'PostController.edit')
-  Route.get('posts/:id/delete', 'PostController.delete')
-  Route.put('posts/:id', 'PostController.update')
-}).middleware(['auth'])

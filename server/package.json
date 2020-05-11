@@ -4,7 +4,7 @@
   "adonis-version": "4.0.0",
   "description": "AdonisJS Blog Demo Application",
   "scripts": {
-    "start": "node server.js",
+    "serve:dev": "nodemon -L -x node server.js",
     "test": "node ace test --timeout=0",
     "build": "postcss -o public/app.css resources/css/app.css",
     "build:prod": "cross-env NODE_ENV=production postcss -o public/app.css resources/css/app.css"

@@ -1,10 +1,10 @@
 FROM node:12-alpine
 
-WORKDIR . /app
+WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install -g @adonisjs/cli
+RUN npm install -g @adonisjs/cli nodemon
 
 RUN npm install
 
@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD [ "npm", "start" ]
+CMD ["nodemon", "-L", "server.js"]
