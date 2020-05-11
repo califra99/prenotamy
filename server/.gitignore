@@ -1,7 +1,5 @@
 node_modules
 tmp
-.env
-database/*.sqlite
 .cache
 
 # Don't push the public folder
