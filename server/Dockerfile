@@ -12,4 +12,6 @@ COPY . .
 
 EXPOSE 8080
 
+USER node
+
 CMD ["nodemon", "-L", "server.js"]
