@@ -6,9 +6,13 @@ const routes = [
     path: "/",
     name: "root",
     meta: {
-      requiresAuth: true
+      requiresAuth: false 
     },
     component: Main,
+  },
+  {
+    path: '**',
+    redirect: "/"
   }
 ];
 

@@ -28,11 +28,12 @@ router.beforeEach((to, from, next) => {
     next();
     return;
   }
-
+  
+  /**
   if (!authUser) {
     router.push("/login");
     return;
-  }
+  } */
 
   if (!authUser.isActive) {
     if (router.currentRoute.name == "profile") {
