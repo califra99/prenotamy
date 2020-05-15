@@ -19,7 +19,8 @@ Route.group(() => {
   Route.post('login', 'SessionController.login')
   Route.post('login/resetpassword', 'UserController.resetpassword')
 
-  Route.post('register', 'UserController.register');
+  Route.post('registerUser', 'UserController.register');
+  Route.post('registerActivity', 'ActivityController.register');
 })
   .prefix("/api/");
 

@@ -4,7 +4,7 @@
       <h2 class="text-xl semibold text-white uppercase tracking-wider"> Prenotamy.com </h2>
       <div class="flex flex-row items-center ml-auto text-white font-bold">
         <span v-for='section in sections' class="mx-3">
-          <a v-if='section.type == "button"' class="p-3  transition duration-200 px-4 bg-teal-700 hover:bg-teal-600 cursor-pointer white bold rounded"> {{ section.label }} </a>
+          <a v-if='section.type == "button"' v-bind:href='section.url' class="p-3  transition duration-200 px-4 bg-teal-700 hover:bg-teal-600 cursor-pointer white bold rounded"> {{ section.label }} </a>
           <a v-else class="cursor-pointer"> {{ section.label }}  </a>
         </span>
       </div>
@@ -59,7 +59,13 @@ export default {
       },
       {
         type: 'button',
-        label: 'Iscriviti come Esercente!'
+        label: 'Iscriviti come Esercente!',
+        url: '/registerActivity'
+      },
+      {
+        type: 'button',
+        label: 'Iscriviti come Utente!',
+        url:'/registerUser'
       }
     ],
     categories: [

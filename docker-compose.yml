@@ -57,7 +57,17 @@ services:
       - default
     ports:
       - 7700:3306
-
+  app: 
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+    - PMA_ARBITRARY=1
+    restart: always
+    links:
+    - db
+    ports:
+    - 8080:80
+  
 volumes:
   database:
     driver: local
@@ -67,3 +77,5 @@ networks:
     external:
       name: proxy_network
   default:
+  
+
