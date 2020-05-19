@@ -1,6 +1,8 @@
 import Main from "@/views/Main";
 import RegisterActivity from "@/views/RegisterActivity"; 
 import RegisterUser from "@/views/RegisterUser"; 
+import RegisterChoice from "@/views/RegisterChoice";
+import FindActivity from "@/views/FindActivity";
 import RouterView from "@/views/RouterView";
 
 const routes = [
@@ -28,6 +30,23 @@ const routes = [
     },
     component: RegisterUser,
   },
+  {
+    path: "/registerChoice",
+    name: "",
+    meta: {
+      requiresAuth: false 
+    },
+    component: RegisterChoice,
+  },
+  {
+    path: "/findActivity",
+    name: "",
+    meta: {
+      requiresAuth: false 
+    },
+    component: FindActivity,
+  },
+  
   {
     path: '**',
     redirect: "/"

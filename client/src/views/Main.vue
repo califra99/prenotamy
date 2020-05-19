@@ -16,12 +16,7 @@
         </div>
         <div class="divide-y w-full divide-gray-400"></div>
       </div>
-      <div class="flex flex-row w-8/12">
-        <input class="form-control rounded p-4 py-6 bg-white border rounded-r-none w-10/12" type='text' placeholder="Cerca l'attività di cui hai bisogno e prenota!"/>
-        <button class="w-2/12 bg-gray-300 border-none rounded rounded-l-none">
-          <i class="fas fa-search text-gray-700"></i>
-        </button>
-      </div>
+     <search-bar></search-bar>
     </div>
     <div class="divide-y w-full divide-gray-400"></div>
     <div class="grid grid-flow-row sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-20 w-full px-10 mb-20">
@@ -43,7 +38,6 @@
   </div>
 </template>
 <script>
-
 export default {
   name: "Main",
   data: () => ({
@@ -59,14 +53,9 @@ export default {
       },
       {
         type: 'button',
-        label: 'Iscriviti come Esercente!',
-        url: '/registerActivity'
+        label: 'Iscriviti',
+        url: '/registerChoice'
       },
-      {
-        type: 'button',
-        label: 'Iscriviti come Utente!',
-        url:'/registerUser'
-      }
     ],
     categories: [
       {
@@ -90,7 +79,9 @@ export default {
   beforeMount() {
   },
   methods: {
+    
   },
+
   components: { },
   watch: {
     $route: {

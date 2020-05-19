@@ -21,6 +21,7 @@ Vue.use(Dialog);
 Vue.use(VueFormulate);
 Vue.prototype.EventBus = EventBus;
 
+
 Vue.config.productionTip = false;
 
 new Vue({

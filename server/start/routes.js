@@ -21,9 +21,12 @@ Route.group(() => {
 
   Route.post('registerUser', 'UserController.register');
   Route.post('registerActivity', 'ActivityController.register');
+  Route.get('findActivity', 'ActivityController.search');
+
 })
   .prefix("/api/");
 
+  
 // Those routes should be only accessible
 // when you are logged in
 Route.group(() => {
